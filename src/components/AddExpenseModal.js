@@ -1,15 +1,6 @@
-import {
-  IonButton,
-  IonButtons,
-  IonCard,
-  IonCardContent,
-  IonContent,
-  IonHeader,
-  IonModal,
-  IonTitle,
-  IonToolbar,
-} from "@ionic/react";
+import { IonButton, IonButtons, IonContent, IonHeader, IonModal, IonTitle, IonToolbar } from "@ionic/react";
 import React from "react";
+import ExpenseValues from "./ExpenseValues";
 
 const AddExpenseModal = ({ showModal, setShowModal }) => {
   return (
@@ -26,17 +17,15 @@ const AddExpenseModal = ({ showModal, setShowModal }) => {
             <IonToolbar color="tertiary">
               <IonTitle>Yeni Kazık Ekle</IonTitle>
               <IonButtons slot="end">
-                <IonButton onClick={() => setShowModal(false)}>Close</IonButton>
+                <IonButton onClick={() => setShowModal(false)}>Kapat</IonButton>
               </IonButtons>
             </IonToolbar>
           </IonHeader>
           <IonContent>
-            <IonCard>
-              <IonCardContent></IonCardContent>
-            </IonCard>
+            <ExpenseValues />
             <div className="modalButtons">
               <IonButton className="expenseButton" color="tertiary">
-                Add Expense
+                Kazığı Ekle
               </IonButton>
             </div>
           </IonContent>
