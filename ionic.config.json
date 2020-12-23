@@ -1,0 +1,7 @@
+{
+  "name": "cebekazik",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
