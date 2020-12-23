@@ -5,7 +5,7 @@ let spendings = [
   },
   {
     title: "Harcama 2",
-    amount: "1253",
+    amount: "123",
   },
   {
     title: "Harcama 3",
@@ -13,7 +13,7 @@ let spendings = [
   },
   {
     title: "Harcama 4",
-    amount: "2565",
+    amount: "255",
   },
 ];
 export default spendings;

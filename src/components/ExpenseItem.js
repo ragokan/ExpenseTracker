@@ -5,7 +5,7 @@ import React from "react";
 const ExpenseItem = ({ title, amount }) => {
   return (
     <IonItem>
-      <IonAvatar slot="start">
+      <IonAvatar slot="start" className="avatarStyle">
         <IonBadge className="badgeStyle" color="tertiary">
           {amount}₺
         </IonBadge>

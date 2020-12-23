@@ -31,3 +31,7 @@
 .closeButton {
   z-index: 100000000000;
 }
+
+.avatarStyle {
+  margin-right: 20px;
+}
