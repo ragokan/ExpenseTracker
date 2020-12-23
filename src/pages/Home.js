@@ -1,17 +1,19 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 import React from "react";
+import ExpenseList from "../components/ExpenseList";
 import "./Home.css";
 
 const Home = () => {
   return (
     <IonPage>
       <IonHeader collapse="condense">
-        <IonToolbar color="tertiary">
+        <IonToolbar color="tertiary" className="toolbar">
           <IonTitle className="title">Cebe Kazık</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>{/* Content Here
-      Content Here */}</IonContent>
+      <IonContent fullscreen>
+        <ExpenseList />
+      </IonContent>
     </IonPage>
   );
 };

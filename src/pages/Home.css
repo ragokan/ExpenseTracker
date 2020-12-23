@@ -1,3 +1,21 @@
 .title {
   font-size: 25.5px;
 }
+
+.toolbar {
+  min-height: 55px;
+}
+
+.badgeStyle {
+  padding: 10px;
+}
+
+.expensesCard {
+  padding-bottom: 30px;
+}
+
+.dateStyle {
+  display: block;
+  font-size: 85%;
+  color: gray;
+}
