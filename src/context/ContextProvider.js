@@ -1,10 +1,13 @@
 import React from "react";
+import ExpenseContextProvider from "./ExpenseContext";
 import ThemeContextProvider from "./ThemeContext";
 
 const ContextProvider = ({ children }) => {
   return (
     <>
-      <ThemeContextProvider>{children}</ThemeContextProvider>
+      <ThemeContextProvider>
+        <ExpenseContextProvider>{children}</ExpenseContextProvider>
+      </ThemeContextProvider>
     </>
   );
 };

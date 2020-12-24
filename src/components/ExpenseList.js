@@ -1,10 +1,10 @@
 import { IonCard, IonLabel, IonList, IonListHeader } from "@ionic/react";
-import React from "react";
-
-import data from "../data";
+import React, { useContext } from "react";
+import { ExpenseContext } from "../context/ExpenseContext";
 import ExpenseItem from "./ExpenseItem";
 
 const ExpenseList = () => {
+  const { expenses } = useContext(ExpenseContext);
   return (
     <>
       <IonCard className="expensesCard">
@@ -12,8 +12,8 @@ const ExpenseList = () => {
           <IonListHeader>
             <IonLabel>Kazıklar</IonLabel>
           </IonListHeader>
-          {data.map((item) => (
-            <ExpenseItem title={item.title} amount={item.amount} />
+          {expenses.map((expense) => (
+            <ExpenseItem title={expense.title} amount={expense.amount} />
           ))}
         </IonList>
       </IonCard>
