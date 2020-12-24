@@ -3,6 +3,7 @@ import { IonMenuButton } from "@ionic/react";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 import React, { useContext } from "react";
 import ExpenseList from "../components/ExpenseList";
+import ExpenseStats from "../components/ExpenseStats";
 import ModalButton from "../components/ModalButton";
 import { ThemeContext } from "../context/ThemeContext";
 import "./Home.css";
@@ -22,6 +23,7 @@ const Home = () => {
         </IonHeader>
 
         <IonContent fullscreen>
+          <ExpenseStats />
           <ExpenseList />
           <ModalButton />
         </IonContent>

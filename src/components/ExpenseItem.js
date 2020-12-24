@@ -20,7 +20,7 @@ const ExpenseItem = ({ id, title, amount, date }) => {
       </IonAvatar>
       <IonLabel>
         {title}
-        <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY - hh:mm")}</IonText>
+        <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY - HH:mm")}</IonText>
       </IonLabel>
       <IonButton fill="clear" slot="end" onClick={() => removeExpense(id)}>
         <IonIcon icon={trash} slot="icon-only" color={themeColor}></IonIcon>
