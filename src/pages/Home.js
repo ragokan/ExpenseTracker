@@ -8,11 +8,12 @@ const Home = () => {
   return (
     <>
       <IonPage>
-        <IonToolbar color="tertiary" className="toolbar">
-          <IonHeader collapse="condense">
+        <IonHeader>
+          <IonToolbar color="tertiary" className="toolbar">
             <IonTitle className="title">Cebe Kazık</IonTitle>
-          </IonHeader>
-        </IonToolbar>
+          </IonToolbar>
+        </IonHeader>
+
         <IonContent fullscreen>
           <ExpenseList />
           <ModalButton />
