@@ -1,8 +1,10 @@
 import { IonButton, IonButtons, IonContent, IonHeader, IonModal, IonTitle, IonToolbar } from "@ionic/react";
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 import ExpenseValues from "./ExpenseValues";
 
 const AddExpenseModal = ({ showModal, setShowModal }) => {
+  const { themeColor } = useContext(ThemeContext);
   return (
     <>
       <IonContent>
@@ -14,7 +16,7 @@ const AddExpenseModal = ({ showModal, setShowModal }) => {
           showBackdrop
         >
           <IonHeader>
-            <IonToolbar color="tertiary">
+            <IonToolbar color={themeColor}>
               <IonTitle>Yeni Kazık Ekle</IonTitle>
               <IonButtons slot="end">
                 <IonButton onClick={() => setShowModal(false)}>Kapat</IonButton>
@@ -24,7 +26,7 @@ const AddExpenseModal = ({ showModal, setShowModal }) => {
           <IonContent>
             <ExpenseValues />
             <div className="modalButtons">
-              <IonButton className="expenseButton" color="tertiary">
+              <IonButton className="expenseButton" color={themeColor}>
                 Kazığı Ekle
               </IonButton>
             </div>
