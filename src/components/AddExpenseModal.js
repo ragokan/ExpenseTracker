@@ -5,13 +5,16 @@ import ExpenseValues from "./ExpenseValues";
 
 const AddExpenseModal = ({ showModal, setShowModal }) => {
   const { themeColor } = useContext(ThemeContext);
+
+  const closeModal = () => setShowModal(false);
+
   return (
     <>
       <IonContent>
         <IonModal
           isOpen={showModal}
           swipeToClose={true}
-          onDidDismiss={() => setShowModal(false)}
+          onDidDismiss={() => closeModal(false)}
           className="ionModal"
           showBackdrop
         >
@@ -19,17 +22,12 @@ const AddExpenseModal = ({ showModal, setShowModal }) => {
             <IonToolbar color={themeColor}>
               <IonTitle>Yeni Kazık Ekle</IonTitle>
               <IonButtons slot="end">
-                <IonButton onClick={() => setShowModal(false)}>Kapat</IonButton>
+                <IonButton onClick={() => closeModal(false)}>Kapat</IonButton>
               </IonButtons>
             </IonToolbar>
           </IonHeader>
           <IonContent>
-            <ExpenseValues />
-            <div className="modalButtons">
-              <IonButton className="expenseButton" color={themeColor}>
-                Kazığı Ekle
-              </IonButton>
-            </div>
+            <ExpenseValues closeModal={closeModal} />
           </IonContent>
         </IonModal>
       </IonContent>

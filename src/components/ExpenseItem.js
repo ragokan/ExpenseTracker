@@ -2,8 +2,9 @@ import { IonAvatar, IonBadge, IonButton, IonIcon, IonItem, IonLabel, IonText } f
 import { trash } from "ionicons/icons";
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import moment from "moment";
 
-const ExpenseItem = ({ title, amount }) => {
+const ExpenseItem = ({ title, amount, date }) => {
   const { themeColor } = useContext(ThemeContext);
   return (
     <IonItem>
@@ -14,7 +15,7 @@ const ExpenseItem = ({ title, amount }) => {
       </IonAvatar>
       <IonLabel>
         {title}
-        <IonText class="dateStyle">Smt</IonText>
+        <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY - hh:mm")}</IonText>
       </IonLabel>
       <IonButton fill="clear" slot="end">
         <IonIcon icon={trash} slot="icon-only" color={themeColor}></IonIcon>
