@@ -1,3 +1,5 @@
+import { IonButtons } from "@ionic/react";
+import { IonMenuButton } from "@ionic/react";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
 import React, { useContext } from "react";
 import ExpenseList from "../components/ExpenseList";
@@ -12,6 +14,9 @@ const Home = () => {
       <IonPage>
         <IonHeader>
           <IonToolbar color={themeColor} className="toolbar">
+            <IonButtons slot="end">
+              <IonMenuButton />
+            </IonButtons>
             <IonTitle className="title">Cebe Kazık</IonTitle>
           </IonToolbar>
         </IonHeader>
