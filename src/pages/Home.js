@@ -6,17 +6,19 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <IonPage>
-      <IonHeader collapse="condense">
+    <>
+      <IonPage>
         <IonToolbar color="tertiary" className="toolbar">
-          <IonTitle className="title">Cebe Kazık</IonTitle>
+          <IonHeader collapse="condense">
+            <IonTitle className="title">Cebe Kazık</IonTitle>
+          </IonHeader>
         </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <ExpenseList />
-        <ModalButton />
-      </IonContent>
-    </IonPage>
+        <IonContent fullscreen>
+          <ExpenseList />
+          <ModalButton />
+        </IonContent>
+      </IonPage>
+    </>
   );
 };
 
