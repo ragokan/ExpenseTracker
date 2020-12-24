@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import AddExpenseModal from "./AddExpenseModal";
 
 const ModalButton = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
