@@ -3,9 +3,12 @@ import { trash } from "ionicons/icons";
 import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 import moment from "moment";
+import { ExpenseContext } from "../context/ExpenseContext";
 
-const ExpenseItem = ({ title, amount, date }) => {
+const ExpenseItem = ({ id, title, amount, date }) => {
   const { themeColor } = useContext(ThemeContext);
+  const { removeExpense } = useContext(ExpenseContext);
+
   return (
     <IonItem>
       <IonAvatar slot="start" className="avatarStyle">
@@ -17,7 +20,7 @@ const ExpenseItem = ({ title, amount, date }) => {
         {title}
         <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY - hh:mm")}</IonText>
       </IonLabel>
-      <IonButton fill="clear" slot="end">
+      <IonButton fill="clear" slot="end" onClick={() => removeExpense(id)}>
         <IonIcon icon={trash} slot="icon-only" color={themeColor}></IonIcon>
       </IonButton>
     </IonItem>

@@ -13,7 +13,13 @@ const ExpenseList = () => {
             <IonLabel>Kazıklar</IonLabel>
           </IonListHeader>
           {expenses.map((expense) => (
-            <ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date} />
+            <ExpenseItem
+              key={expense.id}
+              id={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
           ))}
         </IonList>
       </IonCard>

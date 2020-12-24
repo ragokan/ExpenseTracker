@@ -13,8 +13,12 @@ const ExpenseContextProvider = (props) => {
     setExpenses([newExpense, ...expenses]);
   };
 
+  const removeExpense = (id) => setExpenses(expenses.filter((expense) => expense.id !== id));
+
   return (
-    <ExpenseContext.Provider value={{ expenses, setExpenses, addNewExpense }}>{props.children}</ExpenseContext.Provider>
+    <ExpenseContext.Provider value={{ expenses, setExpenses, addNewExpense, removeExpense }}>
+      {props.children}
+    </ExpenseContext.Provider>
   );
 };
 
