@@ -1,9 +1,25 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { Plugins } from "@capacitor/core";
+const { Storage } = Plugins;
 
 export const ExpenseContext = createContext();
 
 const ExpenseContextProvider = (props) => {
   const [expenses, setExpenses] = useState([]);
+
+  useEffect(() => {
+    async function storageExpenses() {
+      if (expenses.length < 1) {
+        const newExpenses = await Storage.get({ key: "expenses" });
+        newExpenses.value && setExpenses(JSON.parse(newExpenses.value));
+      } else
+        await Storage.set({
+          key: "expenses",
+          value: JSON.stringify(expenses),
+        });
+    }
+    storageExpenses();
+  }, [expenses]);
 
   const addNewExpense = (expense) => {
     const newExpense = {

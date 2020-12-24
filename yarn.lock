@@ -3382,6 +3382,18 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
+cordova-sqlite-storage-dependencies@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage-dependencies/-/cordova-sqlite-storage-dependencies-3.0.0.tgz#5f9c9fd6342fd4135a3375cc3d5579ffd0318e25"
+  integrity sha512-A7gV5lQZc0oPrJ/a+lsZmMZr7vYou4MXyQFOY+b/dwuCMsagLT0EsL7oY54tqzpvjtzLfh0aZGGm9i8DMAIFSA==
+
+cordova-sqlite-storage@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/cordova-sqlite-storage/-/cordova-sqlite-storage-5.1.0.tgz#ded50473525ad178fd623c3881a60662b79a3712"
+  integrity sha512-UmHe9yQiYblDBToh3z91WHuD6ZgmCm3VX+1QFseYQs4WVQ3+ndj22qyGby/NV0uyCgok91gB1obLjLM+9vYJEw==
+  dependencies:
+    cordova-sqlite-storage-dependencies "3.0.0"
+
 core-js-compat@^3.6.2, core-js-compat@^3.8.0:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.8.1.tgz#8d1ddd341d660ba6194cbe0ce60f4c794c87a36e"
