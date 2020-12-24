@@ -1,9 +1,11 @@
+import React, { useContext } from "react";
 import { IonAvatar, IonBadge, IonButton, IonIcon, IonItem, IonLabel, IonText } from "@ionic/react";
 import { trash } from "ionicons/icons";
-import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
-import moment from "moment";
 import { ExpenseContext } from "../context/ExpenseContext";
+import moment from "moment";
+import "moment/locale/tr";
+moment.locale("tr");
 
 const ExpenseItem = ({ id, title, amount, date }) => {
   const { themeColor } = useContext(ThemeContext);

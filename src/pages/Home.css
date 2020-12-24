@@ -40,3 +40,8 @@
 .spacer {
   height: 25px;
 }
+
+.noExpenseText {
+  margin: 20px;
+  text-align: center;
+}
