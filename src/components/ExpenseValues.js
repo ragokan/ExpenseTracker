@@ -1,5 +1,5 @@
 import { IonButton, IonCard, IonCardContent, IonDatetime, IonInput, IonItem, IonLabel } from "@ionic/react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ExpenseContext } from "../context/ExpenseContext";
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -8,6 +8,8 @@ const ExpenseValues = ({ closeModal }) => {
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString());
   const [expenseTitle, setExpenseTitle] = useState("");
   const [expenseAmount, setExpenseAmount] = useState();
+
+  const [canSubmit, setCanSubmit] = useState(false);
 
   const { themeColor } = useContext(ThemeContext);
   const { addNewExpense } = useContext(ExpenseContext);
@@ -21,6 +23,11 @@ const ExpenseValues = ({ closeModal }) => {
     addNewExpense(expense);
     closeModal();
   };
+
+  useEffect(() => {
+    if (expenseTitle === "" || !expenseAmount || expenseAmount < 0) setCanSubmit(false);
+    else setCanSubmit(true);
+  }, [expenseAmount, expenseTitle]);
 
   return (
     <>
@@ -54,7 +61,7 @@ const ExpenseValues = ({ closeModal }) => {
         </IonCardContent>
       </IonCard>
       <div className="modalButtons">
-        <IonButton className="expenseButton" color={themeColor} onClick={() => submitForm()}>
+        <IonButton className="expenseButton" color={themeColor} onClick={() => submitForm()} disabled={!canSubmit}>
           Kazığı Ekle
         </IonButton>
       </div>
