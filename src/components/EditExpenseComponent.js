@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ExpenseContext } from "../context/ExpenseContext";
 import { ThemeContext } from "../context/ThemeContext";
-import { IonButton, IonCard, IonCardContent, IonDatetime, IonInput, IonItem, IonLabel } from "@ionic/react";
+import { IonButton, IonCard, IonCardContent, IonDatetime, IonInput, IonItem, IonLabel, IonToast } from "@ionic/react";
 
 const EditExpenseComponent = ({ expense }) => {
   const currentDate = new Date(new Date().setDate(new Date().getDate() + 1));
@@ -13,6 +13,18 @@ const EditExpenseComponent = ({ expense }) => {
 
   const { themeColor } = useContext(ThemeContext);
   const { updateExpense } = useContext(ExpenseContext);
+
+  const [showToast, setShowToast] = useState(false);
+  const ToastInfo = () => (
+    <IonToast
+      isOpen={showToast}
+      onDidDismiss={() => setShowToast(false)}
+      message="Kazık Güncellendi!"
+      position="bottom"
+      duration={3000}
+      color={themeColor}
+    />
+  );
 
   useEffect(() => {
     if (expense && Object.keys(expense).length < 1) return;
@@ -27,6 +39,7 @@ const EditExpenseComponent = ({ expense }) => {
   }, [expenseAmount, expenseTitle]);
 
   const submitForm = () => {
+    setShowToast(true);
     const editedExpense = {
       id: expense.id,
       title: expenseTitle,
@@ -38,6 +51,7 @@ const EditExpenseComponent = ({ expense }) => {
 
   return (
     <>
+      <ToastInfo />
       <IonCard>
         <IonCardContent>
           <IonItem>
