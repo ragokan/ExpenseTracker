@@ -7,7 +7,7 @@ import ThemeContent from "../components/ThemeContent";
 import { ThemeContext } from "../context/ThemeContext";
 import "./Theme.css";
 
-const Home = ({ history }) => {
+const Home = () => {
   const { themeColor } = useContext(ThemeContext);
   return (
     <>

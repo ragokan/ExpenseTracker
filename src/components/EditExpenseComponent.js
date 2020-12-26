@@ -68,7 +68,13 @@ const EditExpenseComponent = ({ expense }) => {
         </IonCardContent>
       </IonCard>
       <div className="modalButtons">
-        <IonButton className="expenseButton" color={themeColor} onClick={() => submitForm()} disabled={!canSubmit}>
+        <IonButton
+          className="expenseButton"
+          color={themeColor}
+          onClick={() => submitForm()}
+          disabled={!canSubmit}
+          routerLink="/home"
+        >
           Kazığı Güncelle
         </IonButton>
       </div>
