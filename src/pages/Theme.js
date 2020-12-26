@@ -1,7 +1,6 @@
-import { IonButton, IonButtons, IonIcon } from "@ionic/react";
+import { IonBackButton, IonButtons } from "@ionic/react";
 import { IonMenuButton } from "@ionic/react";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-import { arrowBackOutline } from "ionicons/icons";
 import React, { useContext } from "react";
 import ThemeContent from "../components/ThemeContent";
 
@@ -14,10 +13,10 @@ const Home = ({ history }) => {
     <>
       <IonPage>
         <IonHeader>
-          <IonToolbar color={themeColor} className="toolbar">
-            <IonButton fill="clear" slot="start" onClick={() => history.push("/home")}>
-              <IonIcon icon={arrowBackOutline} slot="icon-only" color={themeColor === "light" ? "dark" : "light"}></IonIcon>
-            </IonButton>
+          <IonToolbar color={themeColor}>
+            <IonButtons slot="start">
+              <IonBackButton defaultHref="/home" />
+            </IonButtons>
             <IonButtons slot="end">
               <IonMenuButton />
             </IonButtons>
