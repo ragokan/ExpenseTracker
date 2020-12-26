@@ -8,13 +8,21 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import EditExpenseComponent from "../components/EditExpenseComponent";
+import { ExpenseContext } from "../context/ExpenseContext";
 import { ThemeContext } from "../context/ThemeContext";
 
 const EditExpense = () => {
   const { id } = useParams();
   const { themeColor } = useContext(ThemeContext);
+  const { expenses } = useContext(ExpenseContext);
+  const [expense, setExpense] = useState({});
+  useEffect(() => {
+    setExpense(expenses.find((exp) => exp.id === parseInt(id)));
+  }, [expenses, id]);
+
   return (
     <>
       <IonPage>
@@ -30,7 +38,9 @@ const EditExpense = () => {
           </IonToolbar>
         </IonHeader>
 
-        <IonContent fullscreen></IonContent>
+        <IonContent fullscreen>
+          <EditExpenseComponent expense={expense} />
+        </IonContent>
       </IonPage>
     </>
   );

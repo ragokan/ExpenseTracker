@@ -16,13 +16,13 @@ const ExpenseContextProvider = (props) => {
   }, []);
 
   useEffect(() => {
-    async function getFromStorage() {
+    async function setTheStorage() {
       await Storage.set({
         key: "expenses",
         value: JSON.stringify(expenses),
       });
     }
-    getFromStorage();
+    setTheStorage();
   }, [expenses]);
 
   const addNewExpense = (expense) => {
@@ -33,12 +33,16 @@ const ExpenseContextProvider = (props) => {
     setExpenses([newExpense, ...expenses]);
   };
 
-  const removeExpense = async (id) => {
+  const removeExpense = (id) => {
     setExpenses(expenses.filter((expense) => expense.id !== id));
   };
 
+  const updateExpense = (id, newExpense) => {
+    setExpenses(expenses.map((expense) => (expense.id === id ? newExpense : expense)));
+  };
+
   return (
-    <ExpenseContext.Provider value={{ expenses, setExpenses, addNewExpense, removeExpense }}>
+    <ExpenseContext.Provider value={{ expenses, setExpenses, addNewExpense, removeExpense, updateExpense }}>
       {props.children}
     </ExpenseContext.Provider>
   );
