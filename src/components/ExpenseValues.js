@@ -2,6 +2,7 @@ import { IonButton, IonCard, IonCardContent, IonDatetime, IonInput, IonItem, Ion
 import React, { useContext, useEffect, useState } from "react";
 import { ExpenseContext } from "../context/ExpenseContext";
 import { ThemeContext } from "../context/ThemeContext";
+import { ToastContext } from "../context/ToastContext";
 
 const ExpenseValues = ({ closeModal }) => {
   const currentDate = new Date(new Date().setDate(new Date().getDate() + 1));
@@ -13,8 +14,11 @@ const ExpenseValues = ({ closeModal }) => {
 
   const { themeColor } = useContext(ThemeContext);
   const { addNewExpense } = useContext(ExpenseContext);
+  const { setShowToast, setToastText } = useContext(ToastContext);
 
   const submitForm = () => {
+    setToastText("Kazık başarıyla eklendi.");
+    setShowToast(true);
     const expense = {
       title: expenseTitle,
       amount: expenseAmount,

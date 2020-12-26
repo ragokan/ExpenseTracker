@@ -5,11 +5,20 @@ import { ThemeContext } from "../context/ThemeContext";
 import { ExpenseContext } from "../context/ExpenseContext";
 import moment from "moment";
 import "moment/locale/tr";
+import { ToastContext } from "../context/ToastContext";
 moment.locale("tr");
 
 const ExpenseItem = ({ id, title, amount, date }) => {
   const { themeColor } = useContext(ThemeContext);
   const { removeExpense } = useContext(ExpenseContext);
+
+  const { setShowToast, setToastText } = useContext(ToastContext);
+
+  function deleteItem() {
+    setToastText("Kazıktan başarıyla kurtuldun.");
+    setShowToast(true);
+    removeExpense(id);
+  }
 
   return (
     <IonItem>
@@ -25,7 +34,7 @@ const ExpenseItem = ({ id, title, amount, date }) => {
       <IonButton fill="clear" slot="end" routerLink={`/editExpense/${id}`}>
         <IonIcon icon={createOutline} slot="icon-only" color={themeColor}></IonIcon>
       </IonButton>
-      <IonButton fill="clear" slot="end" onClick={() => removeExpense(id)}>
+      <IonButton fill="clear" slot="end" onClick={() => deleteItem()}>
         <IonIcon icon={trash} slot="icon-only" color={themeColor}></IonIcon>
       </IonButton>
     </IonItem>

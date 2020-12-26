@@ -28,12 +28,14 @@ import Menu from "./components/Menu";
 import { ThemeContext } from "./context/ThemeContext";
 import AppHandler from "./AppHandler";
 import EditExpense from "./pages/EditExpense";
+import ToastComponent from "./components/ToastComponent";
 
 const App = () => {
   const { darkMode } = useContext(ThemeContext);
   return (
     <IonApp className={darkMode ? "dark-theme" : ""}>
       <AppHandler />
+      <ToastComponent />
       <IonReactRouter>
         <IonSplitPane contentId="main">
           <Menu />
