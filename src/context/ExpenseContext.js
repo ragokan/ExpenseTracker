@@ -9,16 +9,20 @@ const ExpenseContextProvider = (props) => {
 
   useEffect(() => {
     async function storageExpenses() {
-      if (expenses.length < 1) {
-        const newExpenses = await Storage.get({ key: "expenses" });
-        newExpenses.value && setExpenses(JSON.parse(newExpenses.value));
-      } else
-        await Storage.set({
-          key: "expenses",
-          value: JSON.stringify(expenses),
-        });
+      const newExpenses = await Storage.get({ key: "expenses" });
+      newExpenses.value && setExpenses(JSON.parse(newExpenses.value));
     }
     storageExpenses();
+  }, []);
+
+  useEffect(() => {
+    async function getFromStorage() {
+      await Storage.set({
+        key: "expenses",
+        value: JSON.stringify(expenses),
+      });
+    }
+    getFromStorage();
   }, [expenses]);
 
   const addNewExpense = (expense) => {
@@ -29,7 +33,9 @@ const ExpenseContextProvider = (props) => {
     setExpenses([newExpense, ...expenses]);
   };
 
-  const removeExpense = (id) => setExpenses(expenses.filter((expense) => expense.id !== id));
+  const removeExpense = async (id) => {
+    setExpenses(expenses.filter((expense) => expense.id !== id));
+  };
 
   return (
     <ExpenseContext.Provider value={{ expenses, setExpenses, addNewExpense, removeExpense }}>
