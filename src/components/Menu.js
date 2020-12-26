@@ -62,7 +62,7 @@ const Menu = () => {
           <IonItemDivider />
           <IonItem>
             <IonIcon slot="start" icon={moonOutline}></IonIcon>
-            <IonLabel>Dark Mode</IonLabel>
+            <IonLabel>Karanlık Mod</IonLabel>
             <IonToggle checked={darkMode} onClick={() => setDarkTheme(!darkMode)} />
           </IonItem>
         </IonList>
