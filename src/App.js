@@ -26,11 +26,13 @@ import "./theme/variables.css";
 import { IonSplitPane } from "@ionic/react";
 import Menu from "./components/Menu";
 import { ThemeContext } from "./context/ThemeContext";
+import AppHandler from "./AppHandler";
 
 const App = () => {
   const { darkMode } = useContext(ThemeContext);
   return (
     <IonApp className={darkMode ? "dark-theme" : ""}>
+      <AppHandler />
       <IonReactRouter>
         <IonSplitPane contentId="main">
           <Menu />
