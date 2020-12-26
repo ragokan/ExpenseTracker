@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { IonAvatar, IonBadge, IonButton, IonIcon, IonItem, IonLabel, IonText } from "@ionic/react";
-import { trash } from "ionicons/icons";
+import { createOutline, trash } from "ionicons/icons";
 import { ThemeContext } from "../context/ThemeContext";
 import { ExpenseContext } from "../context/ExpenseContext";
 import moment from "moment";
@@ -20,8 +20,11 @@ const ExpenseItem = ({ id, title, amount, date }) => {
       </IonAvatar>
       <IonLabel>
         {title}
-        <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY - HH:mm")}</IonText>
+        <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY")}</IonText>
       </IonLabel>
+      <IonButton fill="clear" slot="end" routerLink={`/editExpense/${id}`}>
+        <IonIcon icon={createOutline} slot="icon-only" color={themeColor}></IonIcon>
+      </IonButton>
       <IonButton fill="clear" slot="end" onClick={() => removeExpense(id)}>
         <IonIcon icon={trash} slot="icon-only" color={themeColor}></IonIcon>
       </IonButton>

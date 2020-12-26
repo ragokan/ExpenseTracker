@@ -27,6 +27,7 @@ import { IonSplitPane } from "@ionic/react";
 import Menu from "./components/Menu";
 import { ThemeContext } from "./context/ThemeContext";
 import AppHandler from "./AppHandler";
+import EditExpense from "./pages/EditExpense";
 
 const App = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -39,6 +40,7 @@ const App = () => {
           <IonRouterOutlet id="main">
             <Route path="/home" component={Home} exact={true} />
             <Route path="/theme" component={Theme} exact={true} />
+            <Route path="/editExpense/:id" component={EditExpense} exact={true} />
             <Route exact path="/" render={() => <Redirect to="/home" />} />
           </IonRouterOutlet>
         </IonSplitPane>
