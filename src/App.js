@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -30,7 +30,13 @@ import AppHandler from "./AppHandler";
 import EditExpense from "./pages/EditExpense";
 import ToastComponent from "./components/ToastComponent";
 
+import { Plugins } from "@capacitor/core";
+const { SplashScreen } = Plugins;
+
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   const { darkMode } = useContext(ThemeContext);
   return (
     <IonApp className={darkMode ? "dark-theme" : ""}>

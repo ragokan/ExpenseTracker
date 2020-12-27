@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { IonAvatar, IonBadge, IonButton, IonIcon, IonItem, IonLabel, IonText } from "@ionic/react";
-import { createOutline, trash } from "ionicons/icons";
+import { trash } from "ionicons/icons";
 import { ThemeContext } from "../context/ThemeContext";
 import { ExpenseContext } from "../context/ExpenseContext";
 import moment from "moment";
