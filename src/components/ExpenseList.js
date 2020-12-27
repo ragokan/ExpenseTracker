@@ -1,4 +1,4 @@
-import { IonCard, IonCardContent, IonContent, IonLabel, IonList, IonListHeader, IonText } from "@ionic/react";
+import { IonCard, IonCardContent, IonLabel, IonList, IonListHeader, IonText } from "@ionic/react";
 import React, { useContext } from "react";
 import { ExpenseContext } from "../context/ExpenseContext";
 import { ThemeContext } from "../context/ThemeContext";
