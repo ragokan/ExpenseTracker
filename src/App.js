@@ -34,10 +34,11 @@ import { Plugins } from "@capacitor/core";
 const { SplashScreen } = Plugins;
 
 const App = () => {
+  const { darkMode } = useContext(ThemeContext);
   useEffect(() => {
     SplashScreen.hide();
   }, []);
-  const { darkMode } = useContext(ThemeContext);
+
   return (
     <IonApp className={darkMode ? "dark-theme" : ""}>
       <AppHandler />
