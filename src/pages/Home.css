@@ -45,3 +45,11 @@
   margin: 20px;
   text-align: center;
 }
+
+.mr-n1 {
+  margin-left: -10px;
+}
+
+.expenseItem {
+  width: 100%;
+}

@@ -22,18 +22,17 @@ const ExpenseItem = ({ id, title, amount, date }) => {
 
   return (
     <IonItem>
-      <IonAvatar slot="start" className="avatarStyle">
-        <IonBadge className="badgeStyle" color={themeColor}>
-          {amount}₺
-        </IonBadge>
-      </IonAvatar>
-      <IonLabel>
-        {title}
-        <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY")}</IonText>
-      </IonLabel>
-      <IonButton fill="clear" slot="end" routerLink={`/editExpense/${id}`}>
-        <IonIcon icon={createOutline} slot="icon-only" color={themeColor}></IonIcon>
-      </IonButton>
+      <IonItem className="mr-n1 expenseItem" routerLink={`/editExpense/${id}`}>
+        <IonAvatar slot="start" className="avatarStyle">
+          <IonBadge className="badgeStyle" color={themeColor}>
+            {amount}₺
+          </IonBadge>
+        </IonAvatar>
+        <IonLabel>
+          {title}
+          <IonText class="dateStyle">{moment(date).format("DD MMMM YYYY")}</IonText>
+        </IonLabel>
+      </IonItem>
       <IonButton fill="clear" slot="end" onClick={() => deleteItem()}>
         <IonIcon icon={trash} slot="icon-only" color={themeColor}></IonIcon>
       </IonButton>
