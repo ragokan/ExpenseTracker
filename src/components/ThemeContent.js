@@ -12,6 +12,10 @@ const themes = [
   { value: "dark", title: `Dark` },
   { value: "medium", title: `Medium` },
   { value: "light", title: `Light` },
+  { value: "bordo", title: `Bordo` },
+  { value: "blue", title: `Mavi` },
+  { value: "purple", title: `Mor` },
+  { value: "orange", title: `Turuncu` },
 ];
 
 const ThemeBadge = (value, text) => (
