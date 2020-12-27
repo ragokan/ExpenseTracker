@@ -3,19 +3,19 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../context/ThemeContext";
 
 const themes = [
-  { value: "primary", title: `Primary` },
-  { value: "secondary", title: `Secondary` },
-  { value: "tertiary", title: `Tertiary` },
-  { value: "success", title: `Success` },
-  { value: "warning", title: `Warning` },
-  { value: "danger", title: `Danger` },
-  { value: "dark", title: `Dark` },
-  { value: "medium", title: `Medium` },
-  { value: "light", title: `Light` },
-  { value: "bordo", title: `Bordo` },
-  { value: "blue", title: `Mavi` },
-  { value: "purple", title: `Mor` },
-  { value: "orange", title: `Turuncu` },
+  { value: "primary", title: "Mavi" },
+  { value: "secondary", title: "Açık Mavi" },
+  { value: "tertiary", title: "Mor" },
+  { value: "success", title: "Yeşil" },
+  { value: "warning", title: "Sarı" },
+  { value: "danger", title: "Kırmızı" },
+  { value: "dark", title: "Siyah" },
+  { value: "medium", title: "Gri" },
+  { value: "light", title: "Beyaz" },
+  { value: "bordo", title: "Bordo" },
+  { value: "blue", title: "Mavi" },
+  { value: "purple", title: "Pembe" },
+  { value: "orange", title: "Turuncu" },
 ];
 
 const ThemeBadge = (value, text) => (
